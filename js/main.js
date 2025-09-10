@@ -161,44 +161,44 @@ closeBtn.addEventListener("click", () => {
 
 
 // --------------------------- Script del overly
-  const menuToggle = document.querySelector(".menu-toggle");
-  const mobileMenu = document.querySelector(".mobile-menu");
-  const mobileLinks = document.querySelectorAll(".mobile-menu a");
+ // ================================
+// Script menú hamburguesa
+// ================================
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+const mobileLinks = document.querySelectorAll(".mobile-menu a");
 
-  if (menuToggle && mobileMenu) {
-    // Abrir/cerrar con hamburguesa
-    menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      mobileMenu.classList.toggle("active");
+if (menuToggle && mobileMenu) {
+  // Abrir/cerrar con hamburguesa
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle("active");
 
-      // opcional: cambiar icono ☰ ↔ ✖
-      if (mobileMenu.classList.contains("active")) {
-        menuToggle.textContent = "✖";
-      } else {
-        menuToggle.textContent = "☰";
-      }
+    // Cambiar icono ☰ ↔ ✖
+    menuToggle.textContent = mobileMenu.classList.contains("active") ? "✖" : "☰";
+  });
+
+  // Cerrar menú al hacer clic en un enlace
+  mobileLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      menuToggle.textContent = "☰"; 
     });
+  });
 
-    // Cerrar menú al hacer clic en cualquier enlace
-    mobileLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
-        menuToggle.textContent = "☰"; // vuelve al icono hamburguesa
-      });
-    });
+  // Cerrar menú al hacer clic fuera
+  document.addEventListener("click", (e) => {
+    if (
+      mobileMenu.classList.contains("active") &&
+      !mobileMenu.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
+      mobileMenu.classList.remove("active");
+      menuToggle.textContent = "☰";
+    }
+  });
+}
 
-    // Cerrar menú al hacer clic fuera (overlay simulado)
-    document.addEventListener("click", (e) => {
-      if (
-        mobileMenu.classList.contains("active") &&
-        !mobileMenu.contains(e.target) &&
-        !menuToggle.contains(e.target)
-      ) {
-        mobileMenu.classList.remove("active");
-        menuToggle.textContent = "☰";
-      }
-    });
-  }
 
 
   // carrusel de portada
