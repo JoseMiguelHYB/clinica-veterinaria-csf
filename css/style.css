@@ -68,33 +68,6 @@ header .header-nav {
     border: none;
 }
 
-/* Botón Pedir cita */
-.btn-cita {
-    background: #ff6600;
-    /* azul corporativo */
-    color: #ffffff;
-}
-
-.btn-cita:hover {
-    background: #cc5200;
-    /* un azul más oscuro */
-}
-
-/* Botón WhatsApp */
-.btn-whatsapp {
-    background: #25D366;
-    /* verde oficial WhatsApp */
-    color: #fff;
-}
-
-.btn-whatsapp:hover {
-    background: #1ebe57;
-    /* verde más oscuro */
-}
-
-
-
-
 /* Contenedor general del header */
 .header-container {
     display: grid;
@@ -268,12 +241,12 @@ header .header-nav nav ul li a:hover {
 }
 
 .btn-cita {
-    background: #ff6600;
+    background: #004aad;
     color: #fff;
 }
 
 .btn-whatsapp {
-    background: #25d366;
+    background: #15c154;
     color: #fff;
 }
 
