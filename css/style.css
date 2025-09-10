@@ -16,8 +16,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 /************************ Navbar **************************************/
@@ -175,24 +175,27 @@ header .header-nav nav ul li a:hover {
 /****************************CARRUSEL DE PORTADA*************************************************/
 
 .mural-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* columnas automáticas */
-  gap: 15px; /* espacio entre fotos */
-  padding: 20px;
-  background: #fff;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* columnas automáticas */
+    gap: 15px;
+    /* espacio entre fotos */
+    padding: 20px;
+    background: #fff;
 }
 
 .mural-grid img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover; /* recorta para que queden uniformes */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /* recorta para que queden uniformes */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
 .mural-grid img:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 
@@ -276,9 +279,13 @@ header .header-nav nav ul li a:hover {
 /* Quiénes somos */
 #quienes-somos {
     background: #f8f9fa;
-    padding: 60px 20px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     border-radius: 20px;
 }
+
+
+
 
 /* Servicios */
 #servicios {
@@ -345,6 +352,7 @@ header .header-nav nav ul li a:hover {
     background: #f8f9fa;
     padding: 60px 20px;
     border-radius: 20px;
+    padding-top: 0px;;
 }
 
 
@@ -460,7 +468,8 @@ header .header-nav nav ul li a:hover {
 #equipo {
     background: linear-gradient(135deg, #fffdf0, #ffffff);
     /* amarillo muy bajito casi blanco */
-    padding: 60px 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     border-radius: 20px;
 }
 
@@ -492,7 +501,7 @@ header .header-nav nav ul li a:hover {
 /************************************ Promociones ****************************/
 #promociones {
     background: #fff;
-    padding: 60px 20px;
+    padding-top: 0px;
     border-radius: 20px;
 }
 
@@ -808,7 +817,8 @@ header .header-nav nav ul li a:hover {
     top: 10px;
     left: 0;
     width: 100%;
-    height: 40px; /* más alto para la curva */
+    height: 40px;
+    /* más alto para la curva */
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='40'><path d='M0 20 Q 50 0, 100 20 T 200 20 T 300 20 T 400 20 T 500 20' stroke='%23c49a6c' stroke-width='3' fill='transparent'/></svg>") repeat-x;
     background-size: 200px 40px;
 }
@@ -881,7 +891,7 @@ header .header-nav nav ul li a:hover {
 #contacto-trabaja {
     position: relative;
     background: #f8f9fa;
-    padding: 60px 20px;
+    padding-bottom: 0px;
     overflow: hidden;
     border-radius: 20px;
 }
@@ -891,6 +901,7 @@ header .header-nav nav ul li a:hover {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-top: 40px;
+    padding-top: 0px;
 }
 
 /* Tarjetas generales (para contacto y trabaja) */
@@ -1071,35 +1082,39 @@ footer {
 
 /* ==== Desktop / tablet (dos columnas) ==== */
 .contacto-trabaja-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Contacto y Trabaja en dos columnas */
-  gap: 2rem;
-  align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Contacto y Trabaja en dos columnas */
+    gap: 2rem;
+    align-items: flex-start;
 }
 
 /* ==== Versión móvil (una columna, Contacto arriba, Trabaja debajo) ==== */
 @media (max-width: 900px) {
-  .contacto-trabaja-grid {
-    grid-template-columns: 1fr; /* solo una columna */
-    gap: 1.5rem;
-  }
+    .contacto-trabaja-grid {
+        grid-template-columns: 1fr;
+        /* solo una columna */
+        gap: 1.5rem;
+    }
 
-  .contacto {
-    order: 1; /* Contacto siempre primero */
-  }
+    .contacto {
+        order: 1;
+        /* Contacto siempre primero */
+    }
 
-  .trabaja {
-    order: 2; /* Trabaja siempre debajo */
-  }
+    .trabaja {
+        order: 2;
+        /* Trabaja siempre debajo */
+    }
 
-  /* Que ocupen todo el ancho disponible */
-  .contacto,
-  .trabaja {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
+    /* Que ocupen todo el ancho disponible */
+    .contacto,
+    .trabaja {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
 }
 
 /********************************Redimensiona servicios********************************************/
