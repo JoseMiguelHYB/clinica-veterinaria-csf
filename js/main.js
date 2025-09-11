@@ -277,5 +277,7 @@ const poolImagenes = [
 
       foto.removeEventListener("transitionend", cambio);
     });
-  }, 4000); // Cada 4 segundos
+  }, 7000); // Cada 7 segundos
 });
+
+
