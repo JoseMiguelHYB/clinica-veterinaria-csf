@@ -280,4 +280,86 @@ const poolImagenes = [
   }, 7000); // Cada 7 segundos
 });
 
+// -------------juego de memoria----------------/
+// -------------juego de memoria----------------
+const images = [
+  "img/barbie-azul.png",
+  "img/bartolo-gris.png",
+  "img/gato-persa-morado.png",
+  "img/gato-blanqui-naranja.png",
+  "img/gato-atigrado.png",
+  "img/gato-azulado.png",
+  "img/perro-bulgod-frances.png"
+];
 
+// Para tener 14 cartas (7 pares) + 1 extra = 15 en total
+let cardsArray = [...images, ...images.slice(0, 7), "img/barbie-azul.png"];
+
+// Mezclar array
+cardsArray.sort(() => 0.5 - Math.random());
+
+const board = document.getElementById("gameBoard");
+const scoreEl = document.getElementById("score");
+
+let flippedCards = [];
+let matchedCards = 0;
+let score = 0;
+
+// Render de las cartas
+cardsArray.forEach((img, index) => {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.dataset.image = img;
+
+  card.innerHTML = `
+    <div class="card-inner">
+      <!-- Frente: número (lo que se ve al inicio) -->
+      <div class="card-front">
+        <span class="card-number">${index + 1}</span>
+      </div>
+      <!-- Reverso: imagen (oculto hasta girar) -->
+      <div class="card-back">
+        <img src="${img}" alt="card">
+      </div>
+    </div>
+  `;
+
+  card.addEventListener("click", () => flipCard(card));
+  board.appendChild(card);
+});
+
+function flipCard(card) {
+  if (card.classList.contains("flipped") || flippedCards.length === 2) return;
+
+  card.classList.add("flipped");
+  flippedCards.push(card);
+
+  if (flippedCards.length === 2) {
+    checkMatch();
+  }
+}
+
+function checkMatch() {
+  const [card1, card2] = flippedCards;
+  if (card1.dataset.image === card2.dataset.image) {
+    score++;
+    scoreEl.textContent = score;
+    matchedCards += 2;
+    flippedCards = [];
+
+    if (matchedCards === cardsArray.length) {
+      setTimeout(() => {
+        const winMsg = document.createElement("div");
+        winMsg.classList.add("win-message");
+        winMsg.textContent = "🎉 Has ganado, ¡enhorabuena! 🎉";
+        document.getElementById("juego-memoria").appendChild(winMsg);
+      }, 300);
+    }
+  } else {
+    setTimeout(() => {
+      card1.classList.remove("flipped");
+      card2.classList.remove("flipped");
+      flippedCards = [];
+    }, 800);
+  }
+}
