@@ -208,63 +208,55 @@ header .header-nav nav ul li a:hover {
 
 
 /************************ Horario de atención **************************************/
-/* Horario de atención */
 .horario-atencion {
-    background-color: #ffffff;
-    color: #004aad;
+    border: 2px solid #007bff;
+    border-radius: 20px;
+    background-color: #f8faff;
+    padding: 40px;
+    /* ← más espacio interior */
     text-align: center;
-    padding: 20px;
-    /* un poco más de aire */
+    max-width: 700px;
+    /* ← más ancho, incluso puedes quitarlo */
     margin: 30px auto;
-    max-width: 900px;
-    font-size: 18px;
-    border: 2px solid #004aad;
-    border-radius: 10px;
-    font-weight: 600;
+    /* deja aire arriba y abajo */
 }
 
 .horario-texto {
-    margin-bottom: 15px;
-    /* espacio entre horario y botones */
-    font-family: 'Roboto Mono', monospace;
-    /* estilo técnico-informativo */
-    font-size: 19px;
-    color: #333333;
-    /* gris oscuro, más legible */
-    letter-spacing: 0.5px;
-    /* un poco de espacio entre letras */
-    line-height: 1.5;
+    font-size: 1.3rem;
+    /* ← texto más grande */
+    line-height: 1.8;
+    margin-bottom: 25px;
 }
 
+.horario-texto .dias {
+    font-weight: bold;
+    color: #007bff;
+}
 
-.btn-cita,
-.btn-whatsapp {
-    padding: 12px 24px;
-    /* más grandes */
+.horario-texto .horas {
+    font-weight: 600;
+    color: #333;
+}
+
+.header-actions a {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 10px 20px;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    /* aumenta el tamaño de letra */
-    display: inline-block;
-    transition: transform 0.2s ease;
+    font-weight: 600;
 }
 
 .btn-cita {
-    background: #004aad;
+    background-color: #007bff;
     color: #fff;
 }
 
 .btn-whatsapp {
-    background: #15c154;
+    background-color: #25d366;
     color: #fff;
 }
 
-.btn-cita:hover,
-.btn-whatsapp:hover {
-    transform: scale(1.05);
-    /* efecto al pasar el ratón */
-}
 
 
 
@@ -283,23 +275,19 @@ header .header-nav nav ul li a:hover {
     font-weight: bold;
 }
 
-/* Quiénes somos */
 #quienes-somos {
     background: #f8f9fa;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
     border-radius: 20px;
+    scroll-margin-top: 80px;
+    /* Ajusta el valor a tu cabecera */
 }
-
-
-
 
 /* Servicios */
 #servicios {
     background: linear-gradient(135deg, #fffdf0, #ffffff);
-    /* amarillo muy bajito casi blanco */
-    padding: 60px 20px;
     border-radius: 20px;
+    scroll-margin-top: 80px;
+    /* Igual que arriba */
 }
 
 
@@ -357,10 +345,9 @@ header .header-nav nav ul li a:hover {
 /* Nuestros centros */
 #centros {
     background: #f8f9fa;
-    padding: 60px 20px;
     border-radius: 20px;
-    padding-top: 0px;
-    ;
+    scroll-margin-top: 80px; /* ajusta al alto de tu header fijo */
+
 }
 
 
@@ -474,10 +461,8 @@ header .header-nav nav ul li a:hover {
 
 /************************************ Nuestro equipo ****************************/
 #equipo {
-    background: linear-gradient(135deg, #fffdf0, #ffffff);
-    /* amarillo muy bajito casi blanco */
-    padding-top: 0px;
-    padding-bottom: 0px;
+    background: linear-gradient(135deg, #fffdf0, #ffffff); /* amarillo muy bajito casi blanco */
+    scroll-margin-top: 80px; /* ajusta al alto de tu header fijo */
     border-radius: 20px;
 }
 
@@ -509,7 +494,7 @@ header .header-nav nav ul li a:hover {
 /************************************ Promociones ****************************/
 #promociones {
     background: #fff;
-    padding-top: 0px;
+    scroll-margin-top: 80px; /* ajusta al alto de tu header fijo */
     border-radius: 20px;
 }
 
@@ -600,7 +585,7 @@ header .header-nav nav ul li a:hover {
 /************************************ Opiniones ****************************/
 #opiniones {
     background: #f8f9fa;
-    padding: 60px 20px;
+    scroll-margin-top: 80px; /* ajusta al alto de tu header fijo */
     border-radius: 20px;
 }
 
@@ -654,21 +639,42 @@ header .header-nav nav ul li a:hover {
 .mural-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, auto));
-    gap: 29px; /* 🔹 Aumenta la separación entre las fotos */
-    justify-content: center;       /* centra todo el grid */
-    justify-items: center;         /* centra cada item */
+    gap: 29px;
+    /* 🔹 Aumenta la separación entre las fotos */
+    justify-content: center;
+    /* centra todo el grid */
+    justify-items: center;
+    /* centra cada item */
     align-items: center;
     margin: 0 auto;
     max-width: 1100px;
 }
 
 /* Tamaños */
-.foto.grande { width: 250px; height: 250px; }
-.foto.mediana { width: 210px; height: 210px; }
-.foto.pequena { width: 170px; height: 170px; }
+.foto.grande {
+    width: 250px;
+    height: 250px;
+}
 
-.foto.horizontal { width: 290px; height: 190px; }
-.foto.vertical { width: 190px; height: 270px; }
+.foto.mediana {
+    width: 210px;
+    height: 210px;
+}
+
+.foto.pequena {
+    width: 170px;
+    height: 170px;
+}
+
+.foto.horizontal {
+    width: 290px;
+    height: 190px;
+}
+
+.foto.vertical {
+    width: 190px;
+    height: 270px;
+}
 
 
 
@@ -680,21 +686,29 @@ header .header-nav nav ul li a:hover {
     border: 6px solid #fff;
     border-radius: 10px;
     background: #fff;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Rotaciones suaves en el contenedor */
-.foto.rot-izq { transform: rotate(-3deg); }
-.foto.rot-der { transform: rotate(3deg); }
-.foto.rot-ligero { transform: rotate(1.5deg); }
+.foto.rot-izq {
+    transform: rotate(-3deg);
+}
+
+.foto.rot-der {
+    transform: rotate(3deg);
+}
+
+.foto.rot-ligero {
+    transform: rotate(1.5deg);
+}
 
 /* Hover: enderezar y ampliar */
 .foto:hover {
     transform: rotate(0deg) scale(1.08);
     z-index: 2;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -705,15 +719,30 @@ header .header-nav nav ul li a:hover {
 
 /* Estilos de agradecimientos GRACIAS */
 /* Colores por persona */
-.miguel { color: #007BFF; font-weight: bold; }
-.helena { color: #28A745; font-weight: bold; }
-.jenny  { color: #FF69B4; font-weight: bold; }
-.angie  { color: #8b0af5; font-weight: bold; }
+.miguel {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.helena {
+    color: #28A745;
+    font-weight: bold;
+}
+
+.jenny {
+    color: #FF69B4;
+    font-weight: bold;
+}
+
+.angie {
+    color: #8b0af5;
+    font-weight: bold;
+}
 
 /* Animaciones aleatorias */
 .estilo1 {
     transform: rotate(-5deg) scale(1.2);
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     transition: all 0.4s ease;
 }
 
@@ -770,12 +799,15 @@ header .header-nav nav ul li a:hover {
 .mural-grid img:nth-child(odd) {
     transform: rotate(-3deg);
 }
+
 .mural-grid img:nth-child(even) {
     transform: rotate(3deg);
 }
+
 .mural-grid img:nth-child(3n) {
     transform: rotate(2deg);
 }
+
 .mural-grid img:nth-child(4n) {
     transform: rotate(-2deg);
 }
