@@ -161,7 +161,7 @@ closeBtn.addEventListener("click", () => {
 
 
 // --------------------------- Script del overly
- // ================================
+// ================================
 // Script menú hamburguesa
 // ================================
 const menuToggle = document.querySelector(".menu-toggle");
@@ -182,7 +182,7 @@ if (menuToggle && mobileMenu) {
   mobileLinks.forEach(link => {
     link.addEventListener("click", () => {
       mobileMenu.classList.remove("active");
-      menuToggle.textContent = "☰"; 
+      menuToggle.textContent = "☰";
     });
   });
 
@@ -201,29 +201,29 @@ if (menuToggle && mobileMenu) {
 
 
 
-  // carrusel de portada
-  const slides = document.querySelectorAll('.carousel-slide');
-  let current = 0;
+// carrusel de portada
+const slides = document.querySelectorAll('.carousel-slide');
+let current = 0;
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      if (i === index) {
-        slide.classList.add('active');
-      }
-    });
-  }
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
+    }
+  });
+}
 
-  function nextSlide() {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  }
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
 
-  // Cambia cada 7 segundos
-  setInterval(nextSlide, 7000);
+// Cambia cada 7 segundos
+setInterval(nextSlide, 7000);
 
 
-  // --------------------------------------------MURAL CAMBIANDO DINAMICO----------
+// --------------------------------------------MURAL CAMBIANDO DINAMICO----------
 // Función para verificar si la imagen existe
 const existeImagen = async (url) => {
   try {
@@ -240,13 +240,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const fotos = muralGrid.querySelectorAll("img");
 
   // Pool de imágenes disponibles
-const poolImagenes = [
-  "img/mascota11.PNG", "img/mascota12.PNG", "img/mascota13.PNG",
-  "img/mascota14.PNG", "img/mascota15.PNG", "img/mascota16.PNG",
-  "img/mascota17.PNG", "img/mascota18.PNG", "img/mascota19.PNG",
-  "img/mascota20.PNG", "img/mascota21.PNG", "img/mascota22.PNG", 
-  "img/mascota23.PNG"
-];
+  const poolImagenes = [
+    "img/mascota11.PNG", "img/mascota12.PNG", "img/mascota13.PNG",
+    "img/mascota14.PNG", "img/mascota15.PNG", "img/mascota16.PNG",
+    "img/mascota17.PNG", "img/mascota18.PNG", "img/mascota19.PNG",
+    "img/mascota20.PNG", "img/mascota21.PNG", "img/mascota22.PNG",
+    "img/mascota23.PNG"
+  ];
 
 
   // Guardamos las imágenes visibles actualmente
@@ -308,21 +308,19 @@ let score = 0;
 // Render de las cartas
 cardsArray.forEach((img, index) => {
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("game-card");
   card.dataset.image = img;
 
   card.innerHTML = `
-    <div class="card-inner">
-      <!-- Frente: número (lo que se ve al inicio) -->
-      <div class="card-front">
-        <span class="card-number">${index + 1}</span>
-      </div>
-      <!-- Reverso: imagen (oculto hasta girar) -->
-      <div class="card-back">
-        <img src="${img}" alt="card">
-      </div>
+  <div class="game-card-inner">
+    <div class="game-card-front">
+      <span class="card-number">${index + 1}</span>
     </div>
-  `;
+    <div class="game-card-back">
+      <img src="${img}" alt="card">
+    </div>
+  </div>
+`;
 
   card.addEventListener("click", () => flipCard(card));
   board.appendChild(card);

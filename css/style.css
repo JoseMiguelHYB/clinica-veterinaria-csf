@@ -1422,15 +1422,14 @@ footer a:hover {
   gap: 12px;
   justify-content: center;
 }
-
-.card {
-  width: 120px;   /* ⬅️ antes 100px */
-  height: 120px;  /* ⬅️ antes 100px */
+.game-card {
+  width: 120px;
+  height: 120px;
   perspective: 600px;
   cursor: pointer;
 }
 
-.card-inner {
+.game-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1438,10 +1437,11 @@ footer a:hover {
   transition: transform 0.6s;
 }
 
-.card.flipped .card-inner {
-  transform: rotateY(180deg);
+.game-card.flipped .game-card-inner {
+   transform: rotateY(180deg);
 }
-.card-front, .card-back {
+
+.game-card-front, .game-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1454,19 +1454,19 @@ footer a:hover {
   font-weight: bold;
 }
 
-.card-front {
+.game-card-front {
   background: #4cafef;
   border: 2px solid #4cafef;
   color: #fff;
 }
 
-.card-back {
+.game-card-back {
   background: #fff;
   transform: rotateY(180deg);
   border: 2px solid #ddd;
 }
 
-.card-back img {
+.game-card-back img {
   width: 90%;
   height: 90%;
   object-fit: contain;
