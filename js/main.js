@@ -221,3 +221,50 @@ if (menuToggle && mobileMenu) {
 
   // Cambia cada 7 segundos
   setInterval(nextSlide, 7000);
+
+
+  // --------------------------------------------MURAL CAMBIANDO DINAMICO----------
+document.addEventListener("DOMContentLoaded", () => {
+  const muralGrid = document.querySelector(".mural-grid");
+  const fotos = muralGrid.querySelectorAll("img");
+
+  // Pool de imágenes
+  const poolImagenes = [
+    "img/mascota13.PNG", "img/mascota14.PNG", "img/mascota15.PNG",
+    "img/mascota16.PNG", "img/mascota17.PNG", "img/mascota18.PNG",
+    "img/mascota19.PNG", "img/mascota20.PNG", "img/mascota21.PNG",
+    "img/mascota22.PNG", "img/mascota23.PNG", "img/mascota24.PNG",
+    "img/mascota25.PNG"
+  ];
+
+  // Guardar qué imágenes están actualmente visibles
+  let usadas = Array.from(fotos).map(f => f.src);
+
+  setInterval(() => {
+    const randomIndex = Math.floor(Math.random() * fotos.length);
+    const foto = fotos[randomIndex];
+
+    // Filtrar las disponibles (no usadas en este momento)
+    const disponibles = poolImagenes.filter(img => !usadas.includes(location.origin + "/" + img));
+
+    if (disponibles.length === 0) return; // todas están en uso
+
+    const nuevaImg = disponibles[Math.floor(Math.random() * disponibles.length)];
+
+    // Hacer fade-out
+    foto.style.opacity = 0;
+
+    // Cuando termine la transición del fade-out, cambiar la imagen y hacer fade-in
+    foto.addEventListener("transitionend", function cambio() {
+      foto.src = nuevaImg;
+      foto.style.opacity = 1;
+
+      // Eliminar el listener para que no se ejecute en cada transición
+      foto.removeEventListener("transitionend", cambio);
+    });
+    
+    // Actualizar historial de usadas
+    usadas[randomIndex] = location.origin + "/" + nuevaImg;
+
+  }, 4000);
+});
