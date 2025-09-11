@@ -188,15 +188,7 @@ header .header-nav nav ul li a:hover {
 
 /****************************CARRUSEL DE PORTADA*************************************************/
 
-.mural-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    /* columnas automáticas */
-    gap: 15px;
-    /* espacio entre fotos */
-    padding: 20px;
-    background: #fff;
-}
+
 
 /****QUITAR?
 .mural-grid img {
@@ -656,42 +648,82 @@ header .header-nav nav ul li a:hover {
 }
 
 /************************************ Mural ****************************/
-/* ===== Mural estilo collage compacto ===== */
-#mural {
-    position: relative;
-    background: linear-gradient(135deg, #f2fff9, #ffffff);
-    /* verde menta muy clarito */
-    padding: 60px 20px;
-    overflow: hidden;
-    border-radius: 20px;
-}
-
-
+/* ===== Collage con fotos de distintos tamaños ===== */
+/* ===== Collage estilo mural ===== */
+/************************************ Mural ****************************/
 .mural-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    grid-auto-rows: 160px;
-    gap: 6px;
-    grid-auto-flow: dense;
-    justify-items: center;
-    margin-bottom: 40px;
-    /* 🔥 rellena huecos automáticamente */
+    grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+    gap: 29px; /* 🔹 Aumenta la separación entre las fotos */
+    justify-content: center;       /* centra todo el grid */
+    justify-items: center;         /* centra cada item */
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1100px;
 }
 
-.mural-grid img {
+/* Tamaños */
+.foto.grande { width: 250px; height: 250px; }
+.foto.mediana { width: 210px; height: 210px; }
+.foto.pequena { width: 170px; height: 170px; }
+
+.foto.horizontal { width: 290px; height: 190px; }
+.foto.vertical { width: 190px; height: 270px; }
+
+
+
+/* Imagen polaroid */
+.foto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border: 6px solid #fff;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
     background: #fff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
     cursor: pointer;
-      transition: opacity 1s ease-in-out; /* Fade suave */
-
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Rotaciones suaves en el contenedor */
+.foto.rot-izq { transform: rotate(-3deg); }
+.foto.rot-der { transform: rotate(3deg); }
+.foto.rot-ligero { transform: rotate(1.5deg); }
+
+/* Hover: enderezar y ampliar */
+.foto:hover {
+    transform: rotate(0deg) scale(1.08);
+    z-index: 2;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+}
+
+
+
+
+
+/***********cuerda**************/
+
+
+
+
+
+
+
+
+/* Chincheta encima */
+.mural-grid img::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background: red;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
 
 /* Hover: enderezar y resaltar */
 .mural-grid img:hover {
@@ -700,41 +732,21 @@ header .header-nav nav ul li a:hover {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
 }
 
-/* Inclinaciones suaves para collage */
-.mural-grid img:nth-child(3n) {
+/* Rotación aleatoria para apariencia desordenada */
+.mural-grid img:nth-child(odd) {
     transform: rotate(-3deg);
 }
-
-.mural-grid img:nth-child(4n) {
+.mural-grid img:nth-child(even) {
+    transform: rotate(3deg);
+}
+.mural-grid img:nth-child(3n) {
     transform: rotate(2deg);
 }
-
-.mural-grid img:nth-child(5n) {
+.mural-grid img:nth-child(4n) {
     transform: rotate(-2deg);
 }
 
-.mural-grid img:nth-child(7n) {
-    transform: rotate(2.5deg);
-}
 
-/* Variaciones de tamaños */
-.mural-grid img:nth-child(2),
-.mural-grid img:nth-child(8),
-.mural-grid img:nth-child(12) {
-    grid-row: span 2;
-}
-
-.mural-grid img:nth-child(5),
-.mural-grid img:nth-child(10),
-.mural-grid img:nth-child(14) {
-    grid-column: span 2;
-}
-
-.mural-grid img:nth-child(6),
-.mural-grid img:nth-child(13) {
-    grid-row: span 2;
-    grid-column: span 2;
-}
 
 /* ===== Lightbox ===== */
 .lightbox {
@@ -821,7 +833,7 @@ header .header-nav nav ul li a:hover {
 /* Tarjetas de agradecimiento */
 /* ===== Mural estilo collage compacto ===== */
 /* ===== Cuerda con tarjetitas ===== */
-.cuerda {
+/*.cuerda {
     position: relative;
     display: flex;
     justify-content: center;
@@ -836,10 +848,9 @@ header .header-nav nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 40px;
-    /* más alto para la curva */
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='40'><path d='M0 20 Q 50 0, 100 20 T 200 20 T 300 20 T 400 20 T 500 20' stroke='%23c49a6c' stroke-width='3' fill='transparent'/></svg>") repeat-x;
     background-size: 200px 40px;
-}
+}*/
 
 
 
