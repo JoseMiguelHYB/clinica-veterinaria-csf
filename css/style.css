@@ -5,15 +5,20 @@
     scroll-margin-top: 80px;
 }
 
-body {
+html, body {
     font-family: Arial, sans-serif;
     line-height: 1.5;
     background: #ffffff;
     color: #333;
     font-size: 1rem;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    /* evita scroll horizontal raro */
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -298,21 +303,25 @@ header .header-nav nav ul li a:hover {
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
+
 /* Tarjetas con borde gris y borde superior azul */
 #servicios .card {
-  background: #ffffff;
-  border: 1px solid #ddd;        /* borde gris alrededor */
-  border-top: 6px solid #004aad; /* borde superior azul */
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    /* borde gris alrededor */
+    border-top: 6px solid #004aad;
+    /* borde superior azul */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 #servicios .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-  border-top-color: #002f6c; /* azul más oscuro en hover */
+    transform: translateY(-6px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    border-top-color: #002f6c;
+    /* azul más oscuro en hover */
 }
 
 
@@ -364,21 +373,24 @@ header .header-nav nav ul li a:hover {
 
 /* 📱 Responsive Servicios */
 @media (max-width: 768px) {
-  #servicios .grid {
-    grid-template-columns: 1fr; /* solo 1 columna en móvil */
-  }
+    #servicios .grid {
+        grid-template-columns: 1fr;
+        /* solo 1 columna en móvil */
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  #servicios .grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
-  }
+    #servicios .grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en tablet */
+    }
 }
 
 @media (min-width: 1025px) {
-  #servicios .grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
-  }
+    #servicios .grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columnas en desktop */
+    }
 }
 
 
@@ -507,94 +519,103 @@ header .header-nav nav ul li a:hover {
  Nuestro equipo 
 ************************************/
 #equipo {
-  background: linear-gradient(135deg, #fffdf0, #ffffff);
-  scroll-margin-top: 80px;
-  border-radius: 20px;
+    background: linear-gradient(135deg, #fffdf0, #ffffff);
+    scroll-margin-top: 80px;
+    border-radius: 20px;
 }
 
 /* Grid fijo en 3 columnas (como servicios) */
 #equipo .team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 /* Tarjetas del equipo */
 #equipo .team-card {
-  background: #ffffff;
-  border: 1px solid #ddd;          /* borde gris alrededor */
-  border-top: 6px solid #ffcc00;   /* franja superior amarilla */
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    /* borde gris alrededor */
+    border-top: 6px solid #ffcc00;
+    /* franja superior amarilla */
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 #equipo .team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-  border-top-color: #e6b800; /* amarillo más oscuro en hover */
+    transform: translateY(-6px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    border-top-color: #e6b800;
+    /* amarillo más oscuro en hover */
 }
 
 /* Imágenes */
 #equipo .team-card img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
 }
 
 /* Nombre */
 #equipo .team-card h3 {
-  color: #004aad;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 1rem 0 0.3rem;
+    color: #004aad;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 1rem 0 0.3rem;
 }
 
 /* Descripción */
 #equipo .team-card p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.4;
-  padding: 0 1rem 1.2rem;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.4;
+    padding: 0 1rem 1.2rem;
 }
 
 /* Roles */
 .rol-vet {
-  font-weight: bold;
-  color: #0077cc; /* azul para veterinarios */
+    font-weight: bold;
+    color: #0077cc;
+    /* azul para veterinarios */
 }
 
 .rol-aux {
-  font-weight: bold;
-  color: #e67e22; /* naranja para auxiliares */
+    font-weight: bold;
+    color: #e67e22;
+    /* naranja para auxiliares */
 }
 
 .rol-adm {
-  font-weight: bold;
-  color: #27ae60; /* verde para administrativos */
+    font-weight: bold;
+    color: #27ae60;
+    /* verde para administrativos */
 }
 
 /* 📱 Responsive Equipo */
 @media (max-width: 768px) {
-  #equipo .team-grid {
-    grid-template-columns: 1fr; /* solo 1 tarjeta en móvil */
-  }
+    #equipo .team-grid {
+        grid-template-columns: 1fr;
+        /* solo 1 tarjeta en móvil */
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  #equipo .team-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 tarjetas en tablet */
-  }
+    #equipo .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 tarjetas en tablet */
+    }
 }
 
 @media (min-width: 1025px) {
-  #equipo .team-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 tarjetas en escritorio */
-  }
+    #equipo .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 tarjetas en escritorio */
+    }
 }
 
 
@@ -1345,4 +1366,19 @@ footer {
     }
 }
 
-/********************************MURAL DINAMICO SUAVE********************************************/
+/********************************AVISO LEGAL********************************************/
+footer {
+  background: #222;
+  padding: 20px 0;
+  color: #fff;
+}
+
+footer a {
+  color: #2067b8;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #f1c40f; /* amarillo al hover */
+}
