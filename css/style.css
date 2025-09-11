@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-margin-top: 80px;
 }
 
 body {
@@ -282,71 +283,93 @@ header .header-nav nav ul li a:hover {
     /* Ajusta el valor a tu cabecera */
 }
 
+/******************************************************
+ Servicios 
+******************************************************/
 /* Servicios */
 #servicios {
     background: linear-gradient(135deg, #fffdf0, #ffffff);
-    border-radius: 20px;
-    scroll-margin-top: 80px;
-    /* Igual que arriba */
 }
 
-
-/* Diferencias visuales */
-#servicios .card {
-    border-top: 4px solid #004aad;
-    /* azul corporativo */
-}
-
-
-#servicios .container {
-    position: relative;
-    z-index: 1;
-}
-
-/* Grid */
-.grid {
+/* Grid fijo en 3 columnas */
+#servicios .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+/* Tarjetas con borde gris y borde superior azul */
+#servicios .card {
+  background: #ffffff;
+  border: 1px solid #ddd;        /* borde gris alrededor */
+  border-top: 6px solid #004aad; /* borde superior azul */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Tarjetas generales */
-.card {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 1rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center;
+#servicios .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border-top-color: #002f6c; /* azul más oscuro en hover */
 }
 
-.card img {
+
+/* Imágenes */
+#servicios .card img {
     width: 100%;
-    height: 200px;
+    height: 240px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 0.8rem;
+    display: block;
 }
 
-.card h3 {
+/* Títulos */
+#servicios .card h3 {
     color: #004aad;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem;
 }
 
-.card p {
+/* Texto */
+#servicios .card p {
     font-size: 0.95rem;
-    color: #555;
-    line-height: 1.4;
+    color: #444;
+    line-height: 1.5;
+    padding: 0 1rem 1.2rem;
 }
+
+/* Botón */
+.servicios-btn {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #004aad;
+    color: white;
+    padding: 0.9rem 1.6rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background: #003480;
+    transform: translateY(-3px);
+}
+
 
 /************************ Nuestros Centros **************************************/
 /* Nuestros centros */
 #centros {
     background: #f8f9fa;
     border-radius: 20px;
-    scroll-margin-top: 80px; /* ajusta al alto de tu header fijo */
+    scroll-margin-top: 80px;
+    /* ajusta al alto de tu header fijo */
 
 }
 
@@ -460,41 +483,88 @@ header .header-nav nav ul li a:hover {
 }
 
 /************************************ Nuestro equipo ****************************/
+/************************************
+ Nuestro equipo 
+************************************/
 #equipo {
-    background: linear-gradient(135deg, #fffdf0, #ffffff); /* amarillo muy bajito casi blanco */
-    scroll-margin-top: 80px; /* ajusta al alto de tu header fijo */
-    border-radius: 20px;
+  background: linear-gradient(135deg, #fffdf0, #ffffff);
+  scroll-margin-top: 80px;
+  border-radius: 20px;
 }
 
-
-#equipo .card {
-    border-top: 4px solid #ffcc00;
-    /* amarillo corporativo */
+/* Grid fijo en 3 columnas (como servicios) */
+#equipo .team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
+/* Tarjetas del equipo */
+#equipo .team-card {
+  background: #ffffff;
+  border: 1px solid #ddd;          /* borde gris alrededor */
+  border-top: 6px solid #ffcc00;   /* franja superior amarilla */
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#equipo .team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border-top-color: #e6b800; /* amarillo más oscuro en hover */
+}
+
+/* Imágenes */
+#equipo .team-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nombre */
+#equipo .team-card h3 {
+  color: #004aad;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1rem 0 0.3rem;
+}
+
+/* Descripción */
+#equipo .team-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+  padding: 0 1rem 1.2rem;
+}
+
+/* Roles */
 .rol-vet {
-    font-weight: bold;
-    color: #0077cc;
-    /* azul para veterinarios */
+  font-weight: bold;
+  color: #0077cc; /* azul para veterinarios */
 }
 
 .rol-aux {
-    font-weight: bold;
-    color: #e67e22;
-    /* naranja para auxiliares */
+  font-weight: bold;
+  color: #e67e22; /* naranja para auxiliares */
 }
 
 .rol-adm {
-    font-weight: bold;
-    color: #27ae60;
-    /* Verde administrativo */
-
+  font-weight: bold;
+  color: #27ae60; /* verde para administrativos */
 }
+
+
 
 /************************************ Promociones ****************************/
 #promociones {
     background: #fff;
-    scroll-margin-top: 80px; /* ajusta al alto de tu header fijo */
+    scroll-margin-top: 80px;
+    /* ajusta al alto de tu header fijo */
     border-radius: 20px;
 }
 
@@ -585,7 +655,8 @@ header .header-nav nav ul li a:hover {
 /************************************ Opiniones ****************************/
 #opiniones {
     background: #f8f9fa;
-    scroll-margin-top: 80px; /* ajusta al alto de tu header fijo */
+    scroll-margin-top: 80px;
+    /* ajusta al alto de tu header fijo */
     border-radius: 20px;
 }
 
