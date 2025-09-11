@@ -230,6 +230,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Pool de imágenes
   const poolImagenes = [
+    "img/mascota1.PNG", "img/mascota2.PNG", "img/mascota3.PNG",
+    "img/mascota4.PNG", "img/mascota5.PNG", "img/mascota6.PNG",
+    "img/mascota7.PNG", "img/mascota8.PNG", "img/mascota9.PNG",
+    "img/mascota10.PNG", "img/mascota11.PNG", "img/mascota12.PNG",
     "img/mascota13.PNG", "img/mascota14.PNG", "img/mascota15.PNG",
     "img/mascota16.PNG", "img/mascota17.PNG", "img/mascota18.PNG",
     "img/mascota19.PNG", "img/mascota20.PNG", "img/mascota21.PNG",
