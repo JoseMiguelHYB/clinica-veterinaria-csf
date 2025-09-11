@@ -137,16 +137,26 @@ header .header-nav nav ul li a:hover {
 }
 
 /************************ Hero **************************************/
-.hero {
+/*.hero {
     background-color: #FFD500;
-    /* amarillo corporativo */
     text-align: center;
     width: 100%;
     margin-top: 50px;
-    /* altura aprox del header */
     padding: 80px 20px 60px;
-    /* más balanceado */
+}*/
+
+.hero {
+    /* background-color: #FFD500;  QUITAR o comentar esta línea */
+    background: url("../img/fondo.png") center/cover no-repeat;
+    background-size: cover;      /* hace que la imagen cubra todo el contenedor */
+    background-position: center; /* centra la imagen */
+    background-repeat: no-repeat;/* evita que se repita */
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;  /* altura aprox del header */
+    padding: 80px 20px 60px; /* más balanceado */
 }
+
 
 /* Título principal */
 .hero-title h1 {
@@ -286,8 +296,14 @@ header .header-nav nav ul li a:hover {
     background: #f8f9fa;
     border-radius: 20px;
     scroll-margin-top: 80px;
-    /* Ajusta el valor a tu cabecera */
 }
+
+/*#quienes-somos {
+    background: url("../img/fondo_blanco.png") center/cover no-repeat;
+    border-radius: 20px;
+    scroll-margin-top: 80px;
+}*/
+
 
 /******************************************************
  Servicios 
@@ -1366,4 +1382,12 @@ footer a {
 
 footer a:hover {
   color: #f1c40f; /* amarillo al hover */
+}
+
+
+/***************************************BARBI DUBUU**********************/
+.logo img {
+    height: 50px;   /* Ajusta el tamaño */
+    width: auto;    /* Mantiene la proporción */
+    display: block;
 }
