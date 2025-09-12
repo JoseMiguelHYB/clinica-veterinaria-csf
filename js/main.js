@@ -293,7 +293,7 @@ const images = [
 ];
 
 // Para tener 14 cartas (7 pares) + 1 extra = 15 en total
-let cardsArray = [...images, ...images.slice(0, 7), "img/game-logo.png"];
+let cardsArray = [...images, ...images.slice(0, 7)];
 
 // Mezclar array
 cardsArray.sort(() => 0.5 - Math.random());
